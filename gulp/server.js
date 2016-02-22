@@ -26,6 +26,7 @@ function browserSyncInit(baseDir, browser) {
     routes: routes
   };
 
+  var port = 3010;
   /*
    * You can add a proxy to your backend by uncommenting the line below.
    * You just have to configure a context which will we redirected and the target url.
@@ -38,7 +39,8 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
-    browser: browser
+    browser: browser,
+    port: port
   });
 }
 
