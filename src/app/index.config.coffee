@@ -1,5 +1,5 @@
 angular.module 'cookbookFrontend'
-  .config ($logProvider, toastrConfig) ->
+  .config ($logProvider, toastrConfig, $httpProvider) ->
     'ngInject'
     # Enable log
     $logProvider.debugEnabled true

@@ -1,0 +1,7 @@
+form(name='loginForm', ng-submit='login.login(login.credentials)', novalidate='')
+  label(for='email') Username:
+  input#email(type='text', ng-model='login.credentials.email')
+  label(for='password') Password:
+  input#password(type='password', ng-model='login.credentials.password')
+  button(type='submit') Login
+  | {{vm.elo.elo}}

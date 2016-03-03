@@ -8,8 +8,15 @@ angular.module 'cookbookFrontend'
           'header':
             templateUrl: 'app/templates/header.html'
           'content':
-            templateUrl: 'app/main/main.html'
+            templateUrl: 'app/templates/main.html'
             controller: 'MainController'
             controllerAs: 'main'
+      .state 'app.login',
+        url: 'login'
+        views:
+          'content@':
+            templateUrl: 'app/templates/loginForm.html'
+            controller: 'LoginController'
+            controllerAs: 'login'
 
     $urlRouterProvider.otherwise '/'

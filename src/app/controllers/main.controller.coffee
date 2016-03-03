@@ -1,6 +1,11 @@
-angular.module 'cookbookFrontend'
-  .controller 'MainController', ($timeout) ->
-    'ngInject'
-    vm = this
+(->
+  angular.module 'cookbookFrontend'
+    .controller 'MainController', ($scope, $timeout, AuthService) ->
+      'ngInject'
+      vm = @
+      init = ->
+        vm.currentUser = AuthService.currentUser()
 
-    return
+      init()
+      return
+)()
