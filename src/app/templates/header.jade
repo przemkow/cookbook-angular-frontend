@@ -22,7 +22,7 @@ nav.navbar.navbar-default.navbar-fixed-top
             span.caret
           ul.dropdown-menu(role='menu')
             li
-              a(href="#") Sign out
+              a(ng-click="header.logout()" href="#") Sign out
 
         li(ng-if='!currentUser')
           a(ui-sref="app.login") Sign in

@@ -7,6 +7,8 @@ angular.module 'cookbookFrontend'
         views:
           'header':
             templateUrl: 'app/templates/header.html'
+            controller: 'HeaderController'
+            controllerAs: 'header'
           'content':
             templateUrl: 'app/templates/main.html'
             controller: 'MainController'
