@@ -16,6 +16,14 @@
         Session.create res.data.auth_token, res.data.id, res.data.email, res.data.fist_name, res.data.last_name
         Session.get
 
+    logout: ->
+      console.log "logout"
+      credentials =
+        'Authorization': Session.get().authToken
+      return $http.delete(baseURL + "/sessions/" + Session.authToken, credentials).then (res) ->
+        console.log res
+        return
+
     isLoggedIn: ->
       return !!Session.userId
 

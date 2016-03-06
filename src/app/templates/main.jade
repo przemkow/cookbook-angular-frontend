@@ -1,3 +1,4 @@
 .container
   | main
-  div(ng-if='main.currentUser') Welcome, {{ main.currentUser.userEmail }}
+  div(ng-if='currentUser') Welcome, {{ currentUser.userEmail }}
+    button(ng-click="main.logout()") Logout!
