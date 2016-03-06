@@ -13,6 +13,16 @@ nav.navbar.navbar-default.navbar-fixed-top
           a(href='#') Home
         li
           a(href='#') Link
-      ul.nav.navbar-nav.pull-right
-        li
-          a(href='#') User name
+
+
+      ul.nav.navbar-nav.navbar-right
+        li(dropdown='' ng-if='currentUser')
+          a(href='#', dropdown-toggle='')
+            | {{currentUser.userEmail}}  
+            span.caret
+          ul.dropdown-menu(role='menu')
+            li
+              a(href="#") Sign out
+
+        li(ng-if='!currentUser')
+          a(ui-sref="app.login") Sign in
