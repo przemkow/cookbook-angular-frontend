@@ -1,27 +1,38 @@
 (->
   angular.module 'cookbookFrontend'
-    .service 'Session', ->
+    .service 'Session', ($cookies) ->
+      'ngInject'
       vm = @
+      vm.user = {}
+
+      init = () ->
+        console.log "init has been called"
+        vm.user = $cookies.getObject("currentUser") || {}
 
       @create = (authToken, userId, userEmail, firstName, lastName) ->
-        vm.authToken = authToken
-        vm.userID = userId
-        vm.userEmail = userEmail
-        vm.firstName = firstName
-        vm.lastName = lastName
+        vm.user.authToken = authToken
+        vm.user.userID = userId
+        vm.user.userEmail = userEmail
+        vm.user.firstName = firstName
+        vm.user.lastName = lastName
+        $cookies.putObject("currentUser", vm.user)
+        console.log "object has been added to cookies"
         return
 
       @destroy = ->
-        vm.authToken = null
-        vm.userID = null
-        vm.userEmail = null
-        vm.firstName = null
-        vm.lastName = null
+        vm.user.authToken = null
+        vm.user.userID = null
+        vm.user.userEmail = null
+        vm.user.firstName = null
+        vm.user.lastName = null
+        $cookies.remove("currentUser")
+        console.log "object has been deleted from cookies"
         return
 
       @get = ->
-        vm
-        
+        vm.user
+
+      init()
       return
     return
 )()

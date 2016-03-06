@@ -20,7 +20,8 @@
       console.log "logout"
       credentials =
         'Authorization': Session.get().authToken
-      return $http.delete(baseURL + "/sessions/" + Session.authToken, credentials).then (res) ->
+      return $http.delete(baseURL + "/sessions/" + Session.get().authToken, credentials).then (res) ->
+        Session.destroy()
         console.log res
         return
 

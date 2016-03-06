@@ -2,6 +2,9 @@ angular.module 'cookbookFrontend'
   .run ($log, $rootScope, AUTH_EVENTS, AuthService) ->
     'ngInject'
     $log.debug 'runBlock end'
+
+    $rootScope.currentUser = AuthService.currentUser()
+
     $rootScope.$on AUTH_EVENTS.loginSuccess, ->
       console.log "logged in"
       $rootScope.currentUser = AuthService.currentUser()
