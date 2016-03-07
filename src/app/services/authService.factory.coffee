@@ -14,7 +14,6 @@
         console.log res
         # @create = (authToken, userId, userEmail, firstName, lastName) ->
         Session.create res.data.auth_token, res.data.id, res.data.email, res.data.fist_name, res.data.last_name
-        Session.get
 
     logout: ->
       console.log "logout"

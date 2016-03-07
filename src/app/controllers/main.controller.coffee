@@ -4,7 +4,6 @@
       'ngInject'
       vm = @
       init = ->
-        vm.currentUser = $rootScope.currentUser
         vm.logout = logout
 
       #--------- implementation---------

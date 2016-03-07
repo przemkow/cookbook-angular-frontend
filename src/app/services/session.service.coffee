@@ -6,7 +6,7 @@
       vm.user = {}
 
       init = () ->
-        console.log "init has been called"
+        console.log "Session init has been called"
         vm.user = $cookies.getObject("currentUser") || {}
 
       @create = (authToken, userId, userEmail, firstName, lastName) ->

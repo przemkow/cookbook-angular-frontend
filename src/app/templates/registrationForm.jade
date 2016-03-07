@@ -1,0 +1,27 @@
+form(name='registrationForm', ng-submit='registrationVm.registration(registrationVm.credentials)', novalidate='')
+
+  p
+    label(for='email') Email:
+    input#email(type='text', ng-model='registrationVm.credentials.user.email')
+    
+  p
+    label(for='first_name') First name:
+    input#first_name(type='text', ng-model='registrationVm.credentials.user.first_name')
+  
+  p
+    label(for='last_name') Last name:
+    input#last_name(type='text', ng-model='registrationVm.credentials.user.last_name')
+  
+  p
+    label(for='about') About:
+    input#about(type='text', ng-model='registrationVm.credentials.user.about')
+  
+  p
+    label(for='password') Password:
+    input#password(type='text', ng-model='registrationVm.credentials.user.password')
+  
+  p
+    label(for='password_confirmation') Password confirmation:
+    input#password_confirmation(type='text', ng-model='registrationVm.credentials.user.password_confirmation')
+      
+  button(type='submit') Register

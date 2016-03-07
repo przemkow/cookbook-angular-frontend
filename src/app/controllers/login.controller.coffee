@@ -11,7 +11,7 @@
 
       #--------- implementation---------
       login = (credentials) ->
-        AuthService.login(credentials).then (user) ->
+        AuthService.login(credentials).then ->
           $rootScope.$broadcast AUTH_EVENTS.loginSuccess
           return
         , ->

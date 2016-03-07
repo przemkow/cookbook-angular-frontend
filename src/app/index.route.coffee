@@ -8,17 +8,23 @@ angular.module 'cookbookFrontend'
           'header':
             templateUrl: 'app/templates/header.html'
             controller: 'HeaderController'
-            controllerAs: 'header'
+            controllerAs: 'headerVm'
           'content':
             templateUrl: 'app/templates/main.html'
             controller: 'MainController'
-            controllerAs: 'main'
+            controllerAs: 'mainVm'
       .state 'app.login',
         url: 'login'
         views:
           'content@':
             templateUrl: 'app/templates/loginForm.html'
             controller: 'LoginController'
-            controllerAs: 'login'
-
+            controllerAs: 'loginVm'
+      .state 'app.register',
+        url: 'register'
+        views:
+          'content@':
+            templateUrl: 'app/templates/registrationForm.html'
+            controller: 'RegistrationController'
+            controllerAs: 'registrationVm'
     $urlRouterProvider.otherwise '/'
