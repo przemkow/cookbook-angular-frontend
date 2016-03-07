@@ -8,4 +8,6 @@ angular.module('cookbookFrontend')
     sessionTimeout: 'auth-session-timeout',
     notAuthenticated: 'auth-not-authenticated',
     notAuthorized: 'auth-not-authorized'
+  .constant 'REG_EVENTS',
+    regSuccess: 'registration-success'
   .constant "baseURL", "http://localhost:3000/api"

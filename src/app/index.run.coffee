@@ -1,5 +1,5 @@
 angular.module 'cookbookFrontend'
-  .run ($log, $rootScope, AUTH_EVENTS, AuthService) ->
+  .run ($log, $rootScope, AUTH_EVENTS, REG_EVENTS, AuthService) ->
     'ngInject'
     $log.debug 'runBlock end'
 
@@ -13,4 +13,9 @@ angular.module 'cookbookFrontend'
     $rootScope.$on AUTH_EVENTS.logoutSuccess, ->
       console.log "logged out"
       $rootScope.currentUser = null
+      return
+
+    $rootScope.$on REG_EVENTS.regSuccess, ->
+      console.log "registered"
+      $rootScope.currentUser = AuthService.currentUser()
       return

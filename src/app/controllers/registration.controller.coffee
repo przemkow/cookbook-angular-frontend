@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'RegistrationController', ($scope, $rootScope, UserService) ->
+    .controller 'RegistrationController', ($scope, $rootScope, UserService, AuthService, REG_EVENTS) ->
       'ngInject'
       vm = @
       init = ->
@@ -18,6 +18,7 @@
       register = (credentials)->
         UserService.create(credentials).then (res) ->
           console.log "user registered from controller"
+          $rootScope.$broadcast REG_EVENTS.regSuccess
           return
         , (res) ->
           vm.errors = res.data.errors
