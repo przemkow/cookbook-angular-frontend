@@ -27,4 +27,11 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/registrationForm.html'
             controller: 'RegistrationController'
             controllerAs: 'registrationVm'
+      .state 'app.users',
+        url: 'users/{id:int}'
+        views:
+          'content@':
+            templateUrl: 'app/templates/user.html'
+            controller: 'UserController'
+            controllerAs: 'userVm'
     $urlRouterProvider.otherwise '/'
