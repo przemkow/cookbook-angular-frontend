@@ -11,7 +11,10 @@
   * Jade
 
 #### Other information
-  * https://github.com/Plateful/plateful-mobile/wiki/AngularJS-CoffeeScript-Style-Guid
+
+  Application were developed considering [AngularJS Style Guide](  https://github.com/Plateful/plateful-mobile/wiki/AngularJS-CoffeeScript-Style-Guid
+) by [@john_papa](//twitter.com/john_papa) adjusted for CoffeeScript requirements.
+
 ## Gulp tasks
 
 * `gulp` or `gulp build` to build an optimized version of your application in `/dist`
