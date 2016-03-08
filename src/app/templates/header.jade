@@ -21,6 +21,8 @@ nav.navbar.navbar-default.navbar-fixed-top
             | {{currentUser.email}}  
             span.caret
           ul.dropdown-menu(role='menu')
+            li 
+              a(ui-sref="app.users({id: currentUser.id})") Profile
             li
               a(ng-click="headerVm.logout()" href="#") Sign out
 

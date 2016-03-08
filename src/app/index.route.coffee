@@ -32,6 +32,6 @@ angular.module 'cookbookFrontend'
         views:
           'content@':
             templateUrl: 'app/templates/user.html'
-            controller: 'UserController'
+            controller: 'UserProfileController'
             controllerAs: 'userVm'
     $urlRouterProvider.otherwise '/'

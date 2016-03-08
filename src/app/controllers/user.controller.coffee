@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'UserController', ($scope, $rootScope, $stateParams, UserService) ->
+    .controller 'UserProfileController', ($scope, $rootScope, $stateParams, UserService) ->
       'ngInject'
       vm = @
       init = () ->
