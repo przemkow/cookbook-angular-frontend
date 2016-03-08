@@ -18,7 +18,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav.navbar-right
         li(dropdown='' ng-if='currentUser')
           a(href='#', dropdown-toggle='')
-            | {{currentUser.userEmail}}  
+            | {{currentUser.email}}  
             span.caret
           ul.dropdown-menu(role='menu')
             li
