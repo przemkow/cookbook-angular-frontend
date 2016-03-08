@@ -6,6 +6,7 @@
       init = ->
         vm.logout = logout
         vm.recipes = recipes()
+        
       #--------- implementation---------
       logout = ->
         AuthService.logout().then ->

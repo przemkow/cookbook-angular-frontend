@@ -11,8 +11,8 @@
           first_name: ""
           last_name: ""
           about: ""
-
         getUser($stateParams.id)
+        
       #--------- implementation---------
       getUser = (id) ->
         UserService.get(id).then (res) ->

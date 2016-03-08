@@ -34,4 +34,12 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/user.html'
             controller: 'UserProfileController'
             controllerAs: 'userVm'
+      .state 'app.recipes',
+        url: 'recipes/{id:int}'
+        views:
+          'content@':
+            templateUrl: 'app/templates/recipe.html'
+            controller: 'RecipeController'
+            controllerAs: 'recipeVm'
+
     $urlRouterProvider.otherwise '/'

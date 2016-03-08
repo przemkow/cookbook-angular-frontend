@@ -1,4 +1,4 @@
 .container
   ul
     li(ng-repeat="recipe in mainVm.recipes")
-      {{recipe.name}}
+      a(ui-sref="app.recipes({id: recipe.id})") {{recipe.name}}
