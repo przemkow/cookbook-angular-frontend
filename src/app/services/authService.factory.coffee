@@ -4,7 +4,7 @@
     'ngInject'
 
     currentUser: ->
-      if angular.equals({}, Session.get())
+      if angular.equals(null, Session.get().authToken)
         return null
       else
         return Session.get()

@@ -3,7 +3,12 @@
     .service 'Session', ($cookies) ->
       'ngInject'
       vm = @
-      vm.user = {}
+      vm.user =
+        authToken: null
+        id: null
+        email: null
+        first_name: null
+        last_name: null
 
       init = () ->
         console.log "Session init has been called"

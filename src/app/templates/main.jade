@@ -1,2 +1,4 @@
 .container
-  | main
+  ul
+    li(ng-repeat="recipe in mainVm.recipes")
+      {{recipe.name}}
