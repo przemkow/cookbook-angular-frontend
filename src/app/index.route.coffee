@@ -13,6 +13,10 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/main.html'
             controller: 'MainController'
             controllerAs: 'mainVm'
+            resolve:
+              recipes: ($stateParams, RecipeService) ->
+                'ngInject'
+                RecipeService.query()
       .state 'app.login',
         url: 'login'
         views:
@@ -34,6 +38,12 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/user.html'
             controller: 'UserProfileController'
             controllerAs: 'userVm'
+            resolve:
+              user: ($stateParams, UserService) ->
+                'ngInject'
+                UserService.get($stateParams.id).then (res) ->
+                  return res.data
+
       .state 'app.recipes',
         url: 'recipes/{id:int}'
         views:
