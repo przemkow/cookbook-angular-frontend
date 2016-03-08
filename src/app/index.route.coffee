@@ -41,5 +41,10 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/recipe.html'
             controller: 'RecipeController'
             controllerAs: 'recipeVm'
+            resolve:
+              recipe: ($stateParams, RecipeService) ->
+                'ngInject'
+                RecipeService.get({id: $stateParams.id})
+
 
     $urlRouterProvider.otherwise '/'

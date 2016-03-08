@@ -4,14 +4,14 @@
     'ngInject'
     $resource(baseURL+ "/recipes/:id", null,
     'update':
-       method: 'PUT'
-       headers : Authorization: Session.get().authToken
+      method: 'PUT'
+      headers : Authorization: Session.get().authToken
     'save':
-       headers : Authorization: Session.get().authToken
+      headers : Authorization: Session.get().authToken
     'remove':
-       headers : Authorization: Session.get().authToken
+      headers : Authorization: Session.get().authToken
     'delete':
-       headers : Authorization: Session.get().authToken
+      headers : Authorization: Session.get().authToken
     )
   return
 )()
