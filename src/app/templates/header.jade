@@ -11,6 +11,8 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav
         li.active
           a(href='#') Home
+        li
+          a(ui-sref="app.user.favourites({user_id: currentUser.id})") Favourites
 
 
       ul.nav.navbar-nav.navbar-right
@@ -22,7 +24,7 @@ nav.navbar.navbar-default.navbar-fixed-top
             span.caret
           ul.dropdown-menu(role='menu')
             li 
-              a(ui-sref="app.user({id: currentUser.id})") Profile
+              a(ui-sref="app.user({user_id: currentUser.id})") Profile
             li
               a(ng-click="headerVm.logout()" href="#") Sign out
 

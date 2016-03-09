@@ -32,7 +32,7 @@ angular.module 'cookbookFrontend'
             controller: 'RegistrationController'
             controllerAs: 'registrationVm'
       .state 'app.user',
-        url: 'users/{id:int}'
+        url: 'users/{user_id:int}'
         views:
           'content@':
             templateUrl: 'app/templates/user.html'
@@ -41,8 +41,21 @@ angular.module 'cookbookFrontend'
             resolve:
               user: ($stateParams, UserService) ->
                 'ngInject'
-                UserService.get($stateParams.id).then (res) ->
+                UserService.get($stateParams.user_id).then (res) ->
                   return res.data
+      .state 'app.user.favourites',
+        url: '/favourites'
+        views:
+          'content@':
+            templateUrl: 'app/templates/favourites.html'
+            controller: 'FavouritesController'
+            controllerAs: 'favouritesVm'
+            resolve:
+              favourites: ($stateParams, FavouriteService) ->
+                'ngInject'
+                FavouriteService.query({user_id: $stateParams.user_id})
+
+
       .state 'app.recipe',
         url: 'recipes/{id:int}'
         views:
