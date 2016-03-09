@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'RegistrationController', ($scope, $rootScope, $state, UserService, AuthService, REG_EVENTS) ->
+    .controller 'RegistrationController', ($scope, $rootScope, $state, UserService, AuthService, REG_EVENTS, registrationSliderState) ->
       'ngInject'
       vm = @
       init = ->
@@ -13,6 +13,10 @@
             last_name: ''
             about: ''
         vm.register = register
+        vm.slideAnimations = "slideInRight slideOutLeft"
+        vm.slideView = slideView
+        vm.previousOption = previousOption
+        vm.nextOption = nextOption
 
       #--------- implementation---------
       register = (credentials)->
@@ -27,6 +31,21 @@
           console.log "user not registered from controller"
           return
         return
+
+      slideView = (index) ->
+        if registrationSliderState.getViewIndex() > index
+          vm.previousOption()
+        else
+          vm.nextOption()
+        registrationSliderState.setViewIndex index
+
+      previousOption = (index) ->
+        vm.slideAnimations = "slideInLeft slideOutRight"
+        registrationSliderState.setViewIndex(index)
+
+      nextOption = (index) ->
+        vm.slideAnimations = "slideInRight slideOutLeft"
+        registrationSliderState.setViewIndex(index)
 
       init()
       return

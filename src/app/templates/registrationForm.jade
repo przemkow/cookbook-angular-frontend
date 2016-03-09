@@ -1,27 +1,23 @@
-form(name='registrationForm', ng-submit='registrationVm.register(registrationVm.credentials)', novalidate='')
-
-  p
-    label(for='email') Email:
-    input#email(type='text', ng-model='registrationVm.credentials.user.email')
-    
-  p
-    label(for='first_name') First name:
-    input#first_name(type='text', ng-model='registrationVm.credentials.user.first_name')
-  
-  p
-    label(for='last_name') Last name:
-    input#last_name(type='text', ng-model='registrationVm.credentials.user.last_name')
-  
-  p
-    label(for='about') About:
-    input#about(type='text', ng-model='registrationVm.credentials.user.about')
-  
-  p
-    label(for='password') Password:
-    input#password(type='text', ng-model='registrationVm.credentials.user.password')
-  
-  p
-    label(for='password_confirmation') Password confirmation:
-    input#password_confirmation(type='text', ng-model='registrationVm.credentials.user.password_confirmation')
-      
-  button(type='submit') Register
+.row
+  .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+    #form-container
+      .page-header.text-center
+        h2 Let's join our community! 
+        // the links to our nested states using relative paths
+        // add the active class if the state matches our ui-sref
+        #status-buttons.text-center
+          a#1(ui-sref-active='active', ng-click='registrationVm.slideView(1)', ui-sref='.email')
+            span 1
+            |  Email
+          a#2(ui-sref-active='active', ng-click='registrationVm.slideView(2)', ui-sref='.about')
+            span 2
+            |  About you
+          a#3(ui-sref-active='active', ng-click='registrationVm.slideView(3)', ui-sref='.password')
+            span 3
+            |  Password
+      // use ng-submit to catch the form submission and use our Angular function
+      form#signup-form(ng-submit='registrationVm.register(registrationVm.credentials)')
+        // our nested state views will be injected here
+        #form-views(ui-view='', ng-class='registrationVm.slideAnimations')
+    // show our formData as it is being typed
+    pre {{ registrationVm.credentials | json : spacing}}

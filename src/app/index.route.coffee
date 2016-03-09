@@ -31,6 +31,16 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/registrationForm.html'
             controller: 'RegistrationController'
             controllerAs: 'registrationVm'
+      .state 'app.register.email',
+          url: '/email'
+          templateUrl: 'app/templates/registration-form-partials/form-email.html'
+      .state 'app.register.about',
+          url: '/about'
+          templateUrl: 'app/templates/registration-form-partials/form-about.html',
+      .state 'app.register.password',
+          url: '/password'
+          templateUrl: 'app/templates/registration-form-partials/form-password.html'
+
       .state 'app.user',
         url: 'users/{user_id:int}'
         views:

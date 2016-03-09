@@ -1,0 +1,14 @@
+.form-group
+  label(for='first_name') First name:
+  input.form-control#first_name(type='text', ng-model='registrationVm.credentials.user.first_name')
+.form-group
+  label(for='last_name') Last name:
+  input.form-control#last_name(type='text', ng-model='registrationVm.credentials.user.last_name')
+.form-group
+  label(for='about') About:
+  input.form-control#about(type='text', ng-model='registrationVm.credentials.user.about')
+
+.form-group.row
+  .col-xs-6.col-xs-offset-3
+    a.btn.btn-block.btn-info(ui-sref='app.register.password', ng-click='nextOption(3)')
+      | Next Section 
