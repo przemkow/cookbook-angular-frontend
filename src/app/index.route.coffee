@@ -31,7 +31,7 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/registrationForm.html'
             controller: 'RegistrationController'
             controllerAs: 'registrationVm'
-      .state 'app.users',
+      .state 'app.user',
         url: 'users/{id:int}'
         views:
           'content@':
@@ -43,18 +43,24 @@ angular.module 'cookbookFrontend'
                 'ngInject'
                 UserService.get($stateParams.id).then (res) ->
                   return res.data
-
-      .state 'app.recipes',
+      .state 'app.recipe',
         url: 'recipes/{id:int}'
         views:
           'content@':
-            templateUrl: 'app/templates/recipe.html'
+            templateUrl: 'app/templates/recipe.show.html'
             controller: 'RecipeController'
             controllerAs: 'recipeVm'
             resolve:
               recipe: ($stateParams, RecipeService) ->
                 'ngInject'
                 RecipeService.get({id: $stateParams.id})
+      .state 'app.new_recipe',
+        url: 'recipes/new'
+        views:
+          'content@':
+            templateUrl: 'app/templates/recipe.new.html'
+            controller: 'NewRecipeController'
+            controllerAs: 'newRecipeVm'
 
 
     $urlRouterProvider.otherwise '/'

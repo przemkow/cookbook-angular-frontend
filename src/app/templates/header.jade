@@ -11,18 +11,18 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav
         li.active
           a(href='#') Home
-        li
-          a(href='#') Link
 
 
       ul.nav.navbar-nav.navbar-right
+        li(ng-if='currentUser')
+          a(ui-sref="app.new_recipe") New recipe
         li(dropdown='' ng-if='currentUser')
           a(href='#', dropdown-toggle='')
             | {{currentUser.email}}  
             span.caret
           ul.dropdown-menu(role='menu')
             li 
-              a(ui-sref="app.users({id: currentUser.id})") Profile
+              a(ui-sref="app.user({id: currentUser.id})") Profile
             li
               a(ng-click="headerVm.logout()" href="#") Sign out
 

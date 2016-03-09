@@ -1,0 +1,15 @@
+form(name='newRecipeController', ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)', novalidate='')
+
+  p
+    label(for='name') Name:
+    input#name(type='text', ng-model='newRecipeVm.credentials.recipe.name')
+    
+  p
+    label(for='description') Description:
+    input#description(type='text', ng-model='newRecipeVm.credentials.recipe.description')
+  
+  p
+    label(for='preparation_time_in_min') Preparation time:
+    input#preparation_time_in_min(type='text', ng-model='newRecipeVm.credentials.recipe.preparation_time_in_min')
+  
+  button(type='submit') Submit
