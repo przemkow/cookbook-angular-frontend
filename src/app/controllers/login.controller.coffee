@@ -13,7 +13,7 @@
       login = (credentials) ->
         AuthService.login(credentials).then ->
           $rootScope.$broadcast AUTH_EVENTS.loginSuccess
-          $state.transitionTo('app');
+          $state.transitionTo('app')
           return
         , ->
           $rootScope.$broadcast AUTH_EVENTS.loginFailed

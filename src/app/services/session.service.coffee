@@ -12,7 +12,7 @@
 
       init = () ->
         console.log "Session init has been called"
-        vm.user = $cookies.getObject("currentUser") || {}
+        vm.user = $cookies.getObject("currentUser") || vm.user
 
       @create = (authToken, userId, userEmail, firstName, lastName) ->
         vm.user.authToken = authToken

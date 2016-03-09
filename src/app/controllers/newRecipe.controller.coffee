@@ -15,7 +15,7 @@
       createRecipe = (credentials)->
         RecipeService.save(credentials).$promise.then (res) ->
           console.log res
-          $state.transitionTo('app.recipe', {id: res.id});
+          $state.transitionTo('app.recipe', {id: res.id})
         , (res) ->
           console.log res
 

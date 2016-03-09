@@ -19,7 +19,7 @@
         UserService.create(credentials).then (res) ->
           console.log "user registered from controller"
           $rootScope.$broadcast REG_EVENTS.regSuccess
-          $state.transitionTo('app');
+          $state.transitionTo('app')
           return
         , (res) ->
           vm.errors = res.data.errors
