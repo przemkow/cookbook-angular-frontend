@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'LoginController', ($scope, $rootScope, AUTH_EVENTS, AuthService) ->
+    .controller 'LoginController', ($scope, $rootScope, $state, AUTH_EVENTS, AuthService) ->
       'ngInject'
       vm = @
       init = () ->
@@ -13,6 +13,7 @@
       login = (credentials) ->
         AuthService.login(credentials).then ->
           $rootScope.$broadcast AUTH_EVENTS.loginSuccess
+          $state.transitionTo('app');
           return
         , ->
           $rootScope.$broadcast AUTH_EVENTS.loginFailed

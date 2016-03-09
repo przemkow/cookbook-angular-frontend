@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'NewRecipeController', ($scope, $rootScope, RecipeService) ->
+    .controller 'NewRecipeController', ($scope, $state, $rootScope, RecipeService) ->
       'ngInject'
       vm = @
       init = ->
@@ -13,9 +13,9 @@
 
       #--------- implementation---------
       createRecipe = (credentials)->
-        console.log credentials
         RecipeService.save(credentials).$promise.then (res) ->
           console.log res
+          $state.transitionTo('app.recipe', {id: res.id});
         , (res) ->
           console.log res
 
