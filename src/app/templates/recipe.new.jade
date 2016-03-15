@@ -1,15 +1,22 @@
-form(name='newRecipeController', ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)', novalidate='')
+.container
+  .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+    form(name='newRecipeController', ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)', novalidate='')
+      .form-group
+        label(for='name') Name:
+        input#name.form-control(type='text', ng-model='newRecipeVm.credentials.recipe.name')
+      .form-group  
+        label(for='preparation_time_in_min') Preparation time:
+        select#preparation_time_in_min.form-control(ng-model='newRecipeVm.credentials.recipe.preparation_time_in_min')
+          option(value = 1) Around 1 minute
+          option(value = 5) Around 5 minutes
+          option(value = 15) Around 15 minutes
+          option(value = 30) Around 30 minutes
+          option(value = 60) Around 60 minutes
+          option(value = 90) Around 90 minutes
+          option(value = 120) Around 120 minutes
 
-  p
-    label(for='name') Name:
-    input#name(type='text', ng-model='newRecipeVm.credentials.recipe.name')
-    
-  p
-    label(for='description') Description:
-    input#description(type='text', ng-model='newRecipeVm.credentials.recipe.description')
-  
-  p
-    label(for='preparation_time_in_min') Preparation time:
-    input#preparation_time_in_min(type='text', ng-model='newRecipeVm.credentials.recipe.preparation_time_in_min')
-  
-  button(type='submit') Submit
+      .form-group  
+        label(for='description') Description:
+        textarea#description.form-control(type='text', rows="6  ", ng-model='newRecipeVm.credentials.recipe.description')
+      
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Submit

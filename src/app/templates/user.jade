@@ -1,7 +1,21 @@
-h1 User profile:
-p {{userVm.userIdExist}}
-p {{userVm.user.id}}
-p {{userVm.user.email}}
-p {{userVm.user.first_name}}
-p {{userVm.user.last_name}}
-p {{userVm.user.about}}
+.container
+  .row
+    .col-sm-3 
+      img.img-responsive(src="https://image.freepik.com/free-icon/male-user-profile-picture_318-37825.jpg" class="img-circle" alt="User image")
+    .col-sm-9
+      ul.well.user-info
+        li.row
+          .col-xs-3.title User ID:
+          .col-xs-9 {{userVm.user.id}}
+        li.row 
+          .col-xs-3.title User email:
+          .col-xs-9 {{userVm.user.email}}
+        li.row 
+          .col-xs-3.title First name:
+          .col-xs-9 {{userVm.user.first_name}}
+        li.row 
+          .col-xs-3.title Last name:
+          .col-xs-9 {{userVm.user.last_name}}
+        li.row 
+          .col-xs-3.title About:
+          .col-xs-9{{userVm.user.about}}
