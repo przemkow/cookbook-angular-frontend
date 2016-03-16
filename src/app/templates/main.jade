@@ -1,4 +1,10 @@
 .container
-  ul
-    li(ng-repeat="recipe in mainVm.recipes")
-      a(ui-sref="app.recipe({id: recipe.id})") {{recipe.name}}
+  .row
+    .col-md-10.col-md-offset-1
+      .jumbotron
+        h1 Welcome on our cookbook!
+        p Let's chose one of the recipes bellow or create an account and store your own recipes with us.
+  .row
+    ul.list-group
+      li.col-md-4.col-sm-6.list-group-item(ng-repeat="recipe in mainVm.recipes")
+        a(ui-sref="app.recipe({id: recipe.id})") {{recipe.name}}
