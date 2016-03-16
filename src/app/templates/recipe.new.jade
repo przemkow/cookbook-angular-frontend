@@ -1,5 +1,5 @@
 .container
-  .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+  .col-sm-8.col-sm-offset-2
     form(name='newRecipeController', ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)', novalidate='')
       .form-group
         label(for='name') Name:
@@ -15,8 +15,8 @@
           option(value = 90) Around 90 minutes
           option(value = 120) Around 120 minutes
 
-      .form-group  
+      .form-group 
         label(for='description') Description:
-        textarea#description.form-control(type='text', rows="6  ", ng-model='newRecipeVm.credentials.recipe.description')
+        text-angular#description(ng-model='newRecipeVm.credentials.recipe.description')
       
       button.btn.btn-lg.btn-info.btn-block(type='submit') Submit

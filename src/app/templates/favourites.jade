@@ -5,7 +5,7 @@
         .panel-heading
           h1 {{recipe.name}} 
         .panel-body
-          | {{recipe.description}}
+          div(ng-bind-html="recipe.description")
           hr
           p.pull-right Created by: {{recipe.user.email}}
       
