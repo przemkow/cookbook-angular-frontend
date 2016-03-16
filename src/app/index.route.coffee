@@ -63,7 +63,7 @@ angular.module 'cookbookFrontend'
             resolve:
               favourites: ($stateParams, FavouriteService) ->
                 'ngInject'
-                FavouriteService.query({user_id: $stateParams.user_id})
+                FavouriteService.query({user_id: $stateParams.user_id}).$promise
 
 
       .state 'app.recipe',
@@ -76,7 +76,7 @@ angular.module 'cookbookFrontend'
             resolve:
               recipe: ($stateParams, RecipeService) ->
                 'ngInject'
-                RecipeService.get({id: $stateParams.id})
+                RecipeService.get({id: $stateParams.id}).$promise
       .state 'app.new_recipe',
         url: 'recipes/new'
         views:

@@ -1,2 +1,15 @@
-| Recipe
-pre {{recipeVm.recipe | json : spacing }}
+.container
+  .row
+    .col-sm-3 
+      img.img-responsive(src="http://uxrepo.com/static/icon-sets/linecons/svg/food.svg" class="img-rounded  " alt="User image")
+    .col-sm-9
+      .panel.panel-default
+        .panel-heading
+          .page-header
+            h1 {{recipeVm.recipe.name}} 
+              small ~{{recipeVm.recipe.preparation_time_in_min }} minutes
+            span.label.label-primary.pull-right Created at: {{recipeVm.recipe.created_at | date:'H:mm on dd MMM yyyy'}}
+        .panel-body
+          | {{recipeVm.recipe.description}}
+          hr
+          p.pull-right Created by: {{recipeVm.recipe.user.email}}

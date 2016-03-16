@@ -1,2 +1,11 @@
-| favourites
-pre {{favouritesVm.favourites | json: spacing}}
+.container.favourites
+  .row
+    .col-sm-6.recipe(ng-repeat= "recipe in favouritesVm.favourites")
+      .panel.panel-default
+        .panel-heading
+          h1 {{recipe.name}} 
+        .panel-body
+          | {{recipe.description}}
+          hr
+          p.pull-right Created by: {{recipe.user.email}}
+      
