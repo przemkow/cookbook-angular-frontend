@@ -10,6 +10,6 @@
               small ~{{recipeVm.recipe.preparation_time_in_min }} minutes
             span.label.label-info.pull-right Created at: {{recipeVm.recipe.created_at | date:'H:mm on dd MMM yyyy'}}
         .panel-body
-          div(ng-bind-html="recipeVm.recipe.description")
+          | {{recipeVm.recipe.description}}
           hr
           p.pull-right Created by: {{recipeVm.recipe.user.email}}

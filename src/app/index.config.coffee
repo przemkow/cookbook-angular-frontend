@@ -9,3 +9,16 @@ angular.module 'cookbookFrontend'
     toastrConfig.positionClass = 'toast-top-right'
     toastrConfig.preventDuplicates = true
     toastrConfig.progressBar = true
+
+  .config ($provide) ->
+    $provide.decorator 'taOptions', [
+      '$delegate'
+      (taOptions) ->
+        taOptions.toolbar = [
+          ['h1','h2','h3','h4','h5','h6','p','pre','quote']
+          ['bold','italics','underline','strikeThrough','ul','ol','redo','undo']
+          ['justifyLeft','justifyCenter','justifyRight','indent','outdent']
+        ]
+
+        taOptions
+    ]
