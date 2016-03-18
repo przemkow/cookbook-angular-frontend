@@ -21,10 +21,10 @@
 
         FavouriteService.save(credentials, (res) ->
           console.log res
-          Notification.info 'Recipe added to favourites!'
+          Notification.info {message: 'Recipe added to favourites!', replaceMessage: true}
         , (res) ->
           console.log res
-          Notification.error 'Recipe is already in your favourites' if res.status == 406
+          Notification.error {message: 'Recipe is already in your favourites', replaceMessage: true} if res.status == 406
         )
 
       init()

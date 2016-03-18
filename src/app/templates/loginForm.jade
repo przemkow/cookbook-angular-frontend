@@ -1,5 +1,5 @@
 .container
-  form.form-signin(name='loginForm', ng-submit='loginVm.login(loginVm.credentials)', novalidate='')
+  form.form-signin(name='loginForm', ng-submit='loginVm.login(loginVm.credentials)')
     h2.form-signin-heading Please sign in
     label.sr-only(for='email') Email address
     input#email.form-control(type='email', placeholder='Email address', required='', autofocus='', ng-model='loginVm.credentials.email')
