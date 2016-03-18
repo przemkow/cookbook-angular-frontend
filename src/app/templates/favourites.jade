@@ -1,7 +1,7 @@
 .container.favourites
   .row
     .col-sm-6.recipe(ng-repeat= "recipe in favouritesVm.favourites")
-      .panel.panel-default
+      .panel.panel-default(ui-sref="app.recipe({id: recipe.id})")
         .panel-heading
           h1 {{recipe.name}} 
         .panel-body
