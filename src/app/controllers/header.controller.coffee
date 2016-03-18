@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'HeaderController', ($scope, $rootScope, AUTH_EVENTS, AuthService) ->
+    .controller 'HeaderController', ($scope, $rootScope, AUTH_EVENTS, AuthService, Notification) ->
       'ngInject'
       vm = @
       init = () ->
@@ -10,6 +10,7 @@
       logout = ->
         AuthService.logout().then ->
           $rootScope.$broadcast AUTH_EVENTS.logoutSuccess
+          Notification.info 'See you soon!'
           return
 
       init()

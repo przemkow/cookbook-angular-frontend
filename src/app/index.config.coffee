@@ -22,3 +22,14 @@ angular.module 'cookbookFrontend'
 
         taOptions
     ]
+
+  .config (NotificationProvider) ->
+    NotificationProvider.setOptions
+      delay: 2000
+      startTop: 10
+      startRight: 10
+      verticalSpacing: 20
+      horizontalSpacing: 20
+      positionX: 'right'
+      positionY: 'bottom'
+    return
