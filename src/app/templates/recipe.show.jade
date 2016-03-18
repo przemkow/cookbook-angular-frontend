@@ -8,8 +8,11 @@
           .page-header
             h1 {{recipeVm.recipe.name}} 
               small ~{{recipeVm.recipe.preparation_time_in_min }} minutes
-            span.label.label-info.pull-right Created at: {{recipeVm.recipe.created_at | date:'H:mm on dd MMM yyyy'}}
+            .pull-right
+              span.label.label-info Created at: {{recipeVm.recipe.created_at | date:'H:mm on dd MMM yyyy'}}
+              button.btn.btn-info(ng-click="recipeVm.addToFavourites()")
+                i.fa.fa-heart
         .panel-body
-          | {{recipeVm.recipe.description}}
+          div(ng-bind-html="recipeVm.recipe.description")
           hr
           p.pull-right Created by: {{recipeVm.recipe.user.email}}
