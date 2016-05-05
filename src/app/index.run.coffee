@@ -1,7 +1,9 @@
 angular.module 'cookbookFrontend'
-  .run ($log, $rootScope, AUTH_EVENTS, REG_EVENTS, AuthService) ->
+  .run ($log, $rootScope, $http, AUTH_EVENTS, REG_EVENTS, AuthService, Session) ->
     'ngInject'
     $log.debug 'runBlock end'
+
+    $http.defaults.headers.common.Authorization = Session.get().authToken
 
     $rootScope.currentUser = AuthService.currentUser()
 

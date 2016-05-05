@@ -17,5 +17,8 @@
     destroy: (credentials) ->
       return
 
+    getRecipes: (id) ->
+      return $http.get(baseURL + "/users/" + id + "/recipes")
+
   return
 )()

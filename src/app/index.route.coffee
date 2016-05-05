@@ -64,6 +64,13 @@ angular.module 'cookbookFrontend'
               favourites: ($stateParams, FavouriteService) ->
                 'ngInject'
                 FavouriteService.query({user_id: $stateParams.user_id}).$promise
+      .state 'app.user.myRecipes',
+        url: '/myRecipes'
+        views:
+          'content@':
+            templateUrl: 'app/templates/myRecipes.html'
+            controller: 'MyRecipesController'
+            controllerAs: 'myRecipesVm'
 
 
       .state 'app.recipe',

@@ -10,6 +10,8 @@ angular.module 'cookbookFrontend'
     toastrConfig.preventDuplicates = true
     toastrConfig.progressBar = true
 
+
+
   .config ($provide) ->
     $provide.decorator 'taOptions', [
       '$delegate'

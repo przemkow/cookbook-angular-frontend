@@ -13,6 +13,8 @@ nav.navbar.navbar-default.navbar-fixed-top
           a(href='#') Home
         li
           a(ui-sref="app.user.favourites({user_id: currentUser.id})" ng-if='currentUser') Favourites
+        li
+          a(ui-sref="app.user.myRecipes({user_id: currentUser.id})" ng-if='currentUser') My recipes
 
 
       ul.nav.navbar-nav.navbar-right

@@ -1,0 +1,11 @@
+.container.favourites
+  .row
+    .col-sm-6.recipe(ng-repeat= "recipe in myRecipesVm.myRecipes")
+      .panel.panel-default(ui-sref="app.recipe({id: recipe.id})")
+        .panel-heading
+          h1 {{recipe.name}} 
+        .panel-body
+          div(ng-bind-html="recipe.description")
+          hr
+          p.pull-right Created by: {{recipe.user.email}}
+      
