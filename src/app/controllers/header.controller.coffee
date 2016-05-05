@@ -1,10 +1,11 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'HeaderController', ($scope, $rootScope, AUTH_EVENTS, AuthService, Notification) ->
+    .controller 'HeaderController', ($scope, $rootScope, AUTH_EVENTS, AuthService, Notification, $location) ->
       'ngInject'
       vm = @
       init = () ->
         vm.logout = logout
+        vm.isActive = isActive
 
       #--------- implementation---------
       logout = ->
@@ -12,6 +13,10 @@
           $rootScope.$broadcast AUTH_EVENTS.logoutSuccess
           Notification.info 'See you soon!'
           return
+
+      isActive = (viewLocation) ->
+        console.log $location.path().replace(/[\d]/,"*")
+        return viewLocation == $location.path().replace(/[\d]/,"*")
 
       init()
       return

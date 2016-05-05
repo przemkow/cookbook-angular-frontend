@@ -9,18 +9,18 @@ nav.navbar.navbar-default.navbar-fixed-top
       a.navbar-brand(href='#') Cookbook
     #bs-example-navbar-collapse-6.collapse.navbar-collapse(collapse='navCollapsed')
       ul.nav.navbar-nav
-        li.active
+        li(ng-class="{ active: headerVm.isActive('/')}")
           a(href='#') Home
-        li
+        li(ng-class="{ active: headerVm.isActive('/users/*/favourites')}")
           a(ui-sref="app.user.favourites({user_id: currentUser.id})" ng-if='currentUser') Favourites
-        li
+        li(ng-class="{ active: headerVm.isActive('/users/*/myRecipes')}")
           a(ui-sref="app.user.myRecipes({user_id: currentUser.id})" ng-if='currentUser') My recipes
 
 
       ul.nav.navbar-nav.navbar-right
-        li(ng-if='currentUser')
+        li(ng-if='currentUser' ng-class="{ active: headerVm.isActive('/recipes/new')}")
           a(ui-sref="app.new_recipe") New recipe
-        li(dropdown='' ng-if='currentUser')
+        li(dropdown='' ng-if='currentUser' ng-class="{ active: headerVm.isActive('/users/*')}")
           a(href='#', dropdown-toggle='')
             | {{currentUser.email}}  
             span.caret
