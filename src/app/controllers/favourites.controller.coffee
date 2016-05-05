@@ -8,11 +8,9 @@
         setUser()
 
       setUser = ->
-        console.log vm.favourites
-        for favourite in vm.favourites
+        vm.favourites.map (favourite)->
           UserService.get(favourite.user_id).then (res) ->
             favourite.user =  res.data
-        console.log vm.favourites
 
       init()
       return

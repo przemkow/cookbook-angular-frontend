@@ -71,6 +71,11 @@ angular.module 'cookbookFrontend'
             templateUrl: 'app/templates/myRecipes.html'
             controller: 'MyRecipesController'
             controllerAs: 'myRecipesVm'
+            resolve:
+              myRecipes: ($rootScope, UserService) ->
+                UserService.getRecipes($rootScope.currentUser.id).then (res) ->
+                  return res.data
+
 
 
       .state 'app.recipe',

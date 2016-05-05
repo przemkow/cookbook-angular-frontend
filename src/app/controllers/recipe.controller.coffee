@@ -6,12 +6,12 @@
       init = ->
         vm.recipe = recipe
         vm.user = null
-        setUser()
         vm.addToFavourites = addToFavourites
+        setUser()
 
       setUser = ->
         UserService.get(vm.recipe.user_id).then (res) ->
-          vm.user =  res.data
+          vm.recipe.user =  res.data
 
       addToFavourites = ->
         credentials =
