@@ -33,6 +33,23 @@ body {
   }
 }
 
+
+
+.view-animate.ng-enter {
+  animation: 1s fadeIn;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
