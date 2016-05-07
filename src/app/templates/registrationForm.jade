@@ -16,8 +16,11 @@
             span 3
             |  Password
       // use ng-submit to catch the form submission and use our Angular function
-      form#signup-form(ng-submit='registrationVm.register(registrationVm.credentials)')
+      form#signup-form(ng-submit='registrationVm.register(registrationVm.credentials)' name="registration")
         // our nested state views will be injected here
         #form-views(ui-view='', ng-class='registrationVm.slideAnimations')
     // show our formData as it is being typed
-    pre {{ registrationVm.credentials | json : spacing}}
+    alert.alert-danger(ng-if="registrationVm.hasErrors()")
+      div(ng-repeat="(error, message) in registrationVm.credentials.errors")
+        strong {{error}}
+        |  {{message.join()}}

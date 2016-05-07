@@ -1,7 +1,10 @@
-.form-group
+.form-group(ng-class="{'has-error': registration.email.$touched && registration.email.$invalid}")
   label(for='email') Email
-  input.form-control#email(type='text', name='email', ng-model='registrationVm.credentials.user.email')
+  .div(ng-messages='registration.email.$error', role='alert' ng-if="registration.email.$touched && registration.email.$invalid")
+    .help-block(ng-message='required') This field is required
+    .help-block(ng-message='email') This is not valid email address
+  input.form-control#email(type='email', name='email', required='', ng-model='registrationVm.credentials.user.email')
 .form-group.row
   .col-xs-6.col-xs-offset-3
-    a.btn.btn-block.btn-info(ui-sref='app.register.about', ng-click='registrationVm.nextOption(2)')
+    button.btn.btn-block.btn-info(ui-sref='app.register.about', ng-disabled='registration.email.$error.required || registration.email.$error.email', ng-click='registrationVm.nextOption(2)')
       | Next Section 

@@ -3,16 +3,16 @@
     h2.form-signin-heading Please sign in
     .form-group(ng-class="{'has-error': loginForm.email.$touched && loginForm.email.$invalid}")
       label.control-label(for='email') Email address
-      input#email.form-control(type='email', name="email", placeholder='Email address', required='', autofocus='', ng-model='loginVm.credentials.email')
       .div(ng-messages='loginForm.email.$error', role='alert' ng-if="loginForm.email.$touched && loginForm.email.$invalid")
         .help-block(ng-message='required') This field is required
         .help-block(ng-message='email') This is not valid email address
+      input#email.form-control(type='email', name="email", placeholder='Email address', required='', autofocus='', ng-model='loginVm.credentials.email')
 
     .form-group(ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$invalid}")
       label.control-label(for='password') Password
-      input#password.form-control(type='password', name="password", placeholder='Password', required='', ng-model='loginVm.credentials.password')
       .div(ng-messages='loginForm.password.$error', role='alert' ng-if="loginForm.password.$touched && loginForm.password.$invalid")
         .help-block(ng-message='required') This field is required
+      input#password.form-control(type='password', name="password", placeholder='Password', required='', ng-model='loginVm.credentials.password')
 
     .help-block(ng-if="loginVm.credentials.hasError") Incorrect email or password
-    button.btn.btn-lg.btn-info.btn-block(type='submit') Sign in
+    button.btn.btn-lg.btn-info.btn-block(type='submit' ng-disabled="loginForm.email.$error.required || loginForm.email.$error.email || loginForm.password.$error.required") Sign in

@@ -12,11 +12,13 @@
             first_name: ''
             last_name: ''
             about: ''
+          errors: {}
         vm.register = register
         vm.slideAnimations = "slideInRight slideOutLeft"
         vm.slideView = slideView
         vm.previousOption = previousOption
         vm.nextOption = nextOption
+        vm.hasErrors = hasErrors
 
       #--------- implementation---------
       register = (credentials)->
@@ -26,8 +28,8 @@
           $state.transitionTo('app')
           return
         , (res) ->
-          vm.errors = res.data.errors
-          console.log vm.errors
+          vm.credentials.errors = res.data.errors
+          console.log vm.credentials.errors
           console.log "user not registered from controller"
           return
         return
@@ -46,6 +48,9 @@
       nextOption = (index) ->
         vm.slideAnimations = "slideInRight slideOutLeft"
         registrationSliderState.setViewIndex(index)
+
+      hasErrors = ->
+        Object.keys(vm.credentials.errors).length != 0
 
       init()
       return

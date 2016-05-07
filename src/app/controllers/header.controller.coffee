@@ -15,7 +15,6 @@
           return
 
       isActive = (viewLocation) ->
-        console.log $location.path().replace(/[\d]/,"*")
         return viewLocation == $location.path().replace(/[\d]/,"*")
 
       init()
