@@ -30,7 +30,7 @@ nav.navbar.navbar-default.navbar-fixed-top
             li
               a(ng-click="headerVm.logout()" href="#") Sign out
 
-        li(ng-if='!currentUser')
+        li(ng-if='!currentUser', ng-class="{ active: headerVm.isActive('/login')}")
           a(ui-sref="app.login") Sign in
-        li(ng-if='!currentUser')
+        li(ng-if='!currentUser', ng-class="{ active: headerVm.isActive('/register')}")
           a(ui-sref="app.register.email") Sign up
