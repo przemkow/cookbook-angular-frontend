@@ -1,8 +1,18 @@
 .container
-  form.form-signin(name='loginForm', ng-submit='loginVm.login(loginVm.credentials)')
+  form.form-signin(name='loginForm', ng-submit='loginVm.login(loginVm.credentials)', ng-class="{'has-error': loginVm.credentials.hasError}")
     h2.form-signin-heading Please sign in
-    label.sr-only(for='email') Email address
-    input#email.form-control(type='email', placeholder='Email address', required='', autofocus='', ng-model='loginVm.credentials.email')
-    label.sr-only(for='password') Password
-    input#password.form-control(type='password', placeholder='Password', required='', ng-model='loginVm.credentials.password')
+    .form-group(ng-class="{'has-error': loginForm.email.$touched && loginForm.email.$invalid}")
+      label.control-label(for='email') Email address
+      input#email.form-control(type='email', name="email", placeholder='Email address', required='', autofocus='', ng-model='loginVm.credentials.email')
+      .div(ng-messages='loginForm.email.$error', role='alert' ng-if="loginForm.email.$touched && loginForm.email.$invalid")
+        .help-block(ng-message='required') This field is required
+        .help-block(ng-message='email') This is not valid email address
+
+    .form-group(ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$invalid}")
+      label.control-label(for='password') Password
+      input#password.form-control(type='password', name="password", placeholder='Password', required='', ng-model='loginVm.credentials.password')
+      .div(ng-messages='loginForm.password.$error', role='alert' ng-if="loginForm.password.$touched && loginForm.password.$invalid")
+        .help-block(ng-message='required') This field is required
+
+    .help-block(ng-if="loginVm.credentials.hasError") Incorrect email or password
     button.btn.btn-lg.btn-info.btn-block(type='submit') Sign in
