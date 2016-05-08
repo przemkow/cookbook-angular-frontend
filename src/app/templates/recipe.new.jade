@@ -1,12 +1,16 @@
 .container
   .col-sm-8.col-sm-offset-2
-    form(name='newRecipeController', ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)', novalidate='')
-      .form-group
-        label(for='name') Name:
-        input#name.form-control(type='text', ng-model='newRecipeVm.credentials.recipe.name')
-      .form-group  
-        label(for='preparation_time_in_min') Preparation time:
-        select#preparation_time_in_min.form-control(ng-model='newRecipeVm.credentials.recipe.preparation_time_in_min')
+    form(name="newRecipe", ng-submit='newRecipeVm.createRecipe(newRecipeVm.credentials)')
+      .form-group(ng-class="{'has-error': newRecipe.name.$touched && newRecipe.name.$invalid}")
+        label.control-label(for='name') Name:
+        .div(ng-messages='newRecipe.name.$error', role='alert' ng-if="newRecipe.name.$touched && newRecipe.name.$invalid")
+          .help-block(ng-message='required') This field is required
+        input#name.form-control(type='text', name="name", required='', ng-model='newRecipeVm.credentials.recipe.name')
+      .form-group(ng-class="{'has-error': newRecipe.time.$touched && newRecipe.time.$invalid}")
+        label.control-label(for='preparation_time_in_min') Preparation time:
+        .div(ng-messages='newRecipe.time.$error', role='alert' ng-if="newRecipe.time.$touched && newRecipe.time.$invalid")
+          .help-block(ng-message='required') This field is required
+        select#preparation_time_in_min.form-control(name="time", required='', ng-model='newRecipeVm.credentials.recipe.preparation_time_in_min')
           option(value = 1) Around 1 minute
           option(value = 5) Around 5 minutes
           option(value = 15) Around 15 minutes
@@ -15,8 +19,10 @@
           option(value = 90) Around 90 minutes
           option(value = 120) Around 120 minutes
 
-      .form-group 
-        label(for='description') Description:
-        text-angular#description(ng-model='newRecipeVm.credentials.recipe.description')
+      .form-group(ng-class="{'has-error': newRecipe.description.$touched && newRecipe.description.$invalid}")
+        label.control-label(for='description') Description:
+        .div(ng-messages='newRecipe.description.$error', role='alert' ng-if="newRecipe.description.$touched && newRecipe.description.$invalid")
+          .help-block(ng-message='required') This field is required
+        text-angular#description(name='description', required='', ng-model='newRecipeVm.credentials.recipe.description')
       
       button.btn.btn-lg.btn-info.btn-block(type='submit') Submit
