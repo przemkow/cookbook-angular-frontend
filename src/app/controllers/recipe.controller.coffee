@@ -10,6 +10,8 @@
         vm.isInFavourites = false
         vm.addToFavourites = addToFavourites
         vm.deleteFromFavourites = deleteFromFavourites
+        vm.createdByCurrentUser = createdByCurrentUser
+
         setUser()
         checkFavourites()
 
@@ -51,6 +53,9 @@
           Notification.error {message: 'Recipe is not in your favourites', replaceMessage: true} if res.status == 406
           vm.isInFavourites = true
         )
+
+      createdByCurrentUser = ->
+        vm.recipe.user_id == $rootScope.currentUser.id
 
       init()
       return

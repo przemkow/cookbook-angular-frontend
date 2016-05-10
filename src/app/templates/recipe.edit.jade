@@ -1,0 +1,28 @@
+.container
+  .col-sm-8.col-sm-offset-2
+    form(name="editRecipe", ng-submit='editRecipeVm.updateRecipe(editRecipeVm.credentials)')
+      .form-group(ng-class="{'has-error': editRecipe.name.$touched && editRecipe.name.$invalid}")
+        label.control-label(for='name') Name:
+        .div(ng-messages='editRecipe.name.$error', role='alert' ng-if="editRecipe.name.$touched && editRecipe.name.$invalid")
+          .help-block(ng-message='required') This field is required
+        input#name.form-control(type='text', name="name", required='', ng-model='editRecipeVm.credentials.recipe.name')
+      .form-group(ng-class="{'has-error': editRecipe.time.$touched && editRecipe.time.$invalid}")
+        label.control-label(for='preparation_time_in_min') Preparation time:
+        .div(ng-messages='editRecipe.time.$error', role='alert' ng-if="editRecipe.time.$touched && editRecipe.time.$invalid")
+          .help-block(ng-message='required') This field is required
+        select#preparation_time_in_min.form-control(name="time", required='', ng-model='editRecipeVm.credentials.recipe.preparation_time_in_min')
+          option(value = 1) Around 1 minute
+          option(value = 5) Around 5 minutes
+          option(value = 15) Around 15 minutes
+          option(value = 30) Around 30 minutes
+          option(value = 60) Around 60 minutes
+          option(value = 90) Around 90 minutes
+          option(value = 120) Around 120 minutes
+
+      .form-group(ng-class="{'has-error': editRecipe.description.$touched && editRecipe.description.$invalid}")
+        label.control-label(for='description') Description:
+        .div(ng-messages='editRecipe.description.$error', role='alert' ng-if="editRecipe.description.$touched && editRecipe.description.$invalid")
+          .help-block(ng-message='required') This field is required
+        text-angular#description(name='description', required='', ng-model='editRecipeVm.credentials.recipe.description')
+      
+      button.btn.btn-lg.btn-info.btn-block(type='submit') Submit

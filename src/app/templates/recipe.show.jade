@@ -14,6 +14,9 @@
                 i.fa.fa-heart
               button.btn.btn-warning(ng-click="recipeVm.deleteFromFavourites()" ng-if="recipeVm.isInFavourites")
                 i.fa.fa-ban
+              button.btn.btn-info(ui-sref="app.recipe.edit({id: recipeVm.recipe.id})" ng-if="recipeVm.createdByCurrentUser()")
+                i.fa.fa-edit
+
                 
         .panel-body
           div(ng-bind-html="recipeVm.recipe.description")

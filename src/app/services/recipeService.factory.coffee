@@ -4,8 +4,10 @@
     'ngInject'
     $resource(baseURL+ "/recipes/:id", null,
     'update':
-      method: 'PUT'
+      method: 'PATCH'
       headers : Authorization: Session.get().authToken
+      params:
+        id: "@id"
     'save':
       method: 'POST'
       headers : Authorization: Session.get().authToken

@@ -90,6 +90,18 @@ angular.module 'cookbookFrontend'
                 'ngInject'
                 FavouriteService.query({user_id: $rootScope.currentUser.id}).$promise
 
+      .state 'app.recipe.edit',
+        url: '/edit'
+        views:
+          'content@':
+            templateUrl: 'app/templates/recipe.edit.html'
+            controller: 'EditRecipeController'
+            controllerAs: 'editRecipeVm'
+            resolve:
+              recipe: ($stateParams, RecipeService) ->
+                'ngInject'
+                RecipeService.get({id: $stateParams.id}).$promise
+
       .state 'app.new_recipe',
         url: 'recipes/new'
         views:
