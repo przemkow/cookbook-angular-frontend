@@ -86,6 +86,10 @@ angular.module 'cookbookFrontend'
               recipe: ($stateParams, RecipeService) ->
                 'ngInject'
                 RecipeService.get({id: $stateParams.id}).$promise
+              currentUserFavourites: ($rootScope, FavouriteService) ->
+                'ngInject'
+                FavouriteService.query({user_id: $rootScope.currentUser.id}).$promise
+
       .state 'app.new_recipe',
         url: 'recipes/new'
         views:

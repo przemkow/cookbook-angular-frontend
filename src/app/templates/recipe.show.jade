@@ -10,8 +10,11 @@
               small ~{{recipeVm.recipe.preparation_time_in_min }} minutes
             .pull-right
               span.label.label-info Created at: {{recipeVm.recipe.created_at | date:'H:mm on dd MMM yyyy'}}
-              button.btn.btn-info(ng-click="recipeVm.addToFavourites()")
+              button.btn.btn-info(ng-click="recipeVm.addToFavourites()" ng-if="!recipeVm.isInFavourites")
                 i.fa.fa-heart
+              button.btn.btn-warning(ng-click="recipeVm.deleteFromFavourites()" ng-if="recipeVm.isInFavourites")
+                i.fa.fa-ban
+                
         .panel-body
           div(ng-bind-html="recipeVm.recipe.description")
           hr
