@@ -5,6 +5,10 @@
     .col-sm-9
       .panel.panel-default
         .panel-heading
+          .pull-right
+            button.btn.btn-xs.btn-default(ng-really-message="Do you want to delete that recipe?" ng-really-click="recipeVm.deleteRecipe()" ng-if="recipeVm.createdByCurrentUser()")
+              i.fa.fa-trash-o 
+
           .page-header
             h1 {{recipeVm.recipe.name}} 
               small ~{{recipeVm.recipe.preparation_time_in_min }} minutes

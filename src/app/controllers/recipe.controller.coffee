@@ -1,6 +1,6 @@
 (->
   angular.module 'cookbookFrontend'
-    .controller 'RecipeController', ($scope, $rootScope, recipe, currentUserFavourites, UserService, FavouriteService, Notification) ->
+    .controller 'RecipeController', ($scope, $rootScope, recipe, $state, currentUserFavourites, UserService, FavouriteService, RecipeService, Notification) ->
       'ngInject'
       vm = @
       init = ->
@@ -11,6 +11,7 @@
         vm.addToFavourites = addToFavourites
         vm.deleteFromFavourites = deleteFromFavourites
         vm.createdByCurrentUser = createdByCurrentUser
+        vm.deleteRecipe = deleteRecipe
 
         setUser()
         checkFavourites()
@@ -53,6 +54,13 @@
           Notification.error {message: 'Recipe is not in your favourites', replaceMessage: true} if res.status == 406
           vm.isInFavourites = true
         )
+
+      deleteRecipe = ->
+        RecipeService.delete({id: vm.recipe.id}).$promise.then (res) ->
+          console.log res
+          $state.transitionTo('app')
+        , (res) ->
+          console.log res
 
       createdByCurrentUser = ->
         vm.recipe.user_id == $rootScope.currentUser.id
